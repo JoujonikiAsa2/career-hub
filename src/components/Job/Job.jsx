@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import { CiLocationOn } from "react-icons/ci";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
+import { Link } from 'react-router-dom';
 const Job = ({ job }) => {
-    const { logo, job_title, company_name, remote_or_onsite, location, job_type, salary } = job;
+    const {id, logo, job_title, company_name, remote_or_onsite, location, job_type, salary } = job;
     return (
         <div className='card card-compact border rounded p-4'>
             <div className="card-body">
@@ -18,7 +19,7 @@ const Job = ({ job }) => {
                     <p className='py-2 flex gap-3 items-center text-lg' ><RiMoneyDollarCircleLine></RiMoneyDollarCircleLine> {salary}</p>
                 </div>
                 <div className='card-action  justify-start'>
-                    <button className='btn bg-gradient-to-r from-[#9873FF] to-[#7E90FE] capitalize text-lg font-extrabold rounded text-white'>View Details</button>
+                    <Link to={`/job/${id}`} className='btn bg-gradient-to-r from-[#9873FF] to-[#7E90FE] capitalize text-lg font-extrabold rounded text-white' id={id}>View Details</Link>
                 </div>
             </div>
         </div>
