@@ -3,6 +3,9 @@ import { CiLocationOn,CiDollar } from "react-icons/ci";
 import { BiBriefcaseAlt2 } from "react-icons/bi";
 import {BsTelephone} from "react-icons/bs";
 import {HiOutlineMail} from "react-icons/hi";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { saveJobApplication } from "../Utility/LocalStorage";
 
 const JobDetails = () => {
     const jobs = useLoaderData();
@@ -10,6 +13,12 @@ const JobDetails = () => {
     const idInt = parseInt(id)
     const job = jobs.find(job => job.id == idInt)
     console.log(job)
+
+    const handleToast =()=>{ 
+        saveJobApplication(idInt)
+        toast("Yor applied successfully!")
+    }
+
     return (
         <div className="">
             <div className="flex justify-center items-center py-20  bg-blue-100">
@@ -52,7 +61,8 @@ const JobDetails = () => {
                         </div>
                     </div>
                     <div>
-                        <button className="w-[100%] btn bg-blue-500 my-4 capitalize text-white font-bold">Apply Now</button>
+                        <button className="w-[100%] btn bg-blue-500 my-4 capitalize text-white font-bold" onClick={handleToast}>Apply Now</button>
+                        <ToastContainer></ToastContainer>
                     </div>
                 </div>
             </div>

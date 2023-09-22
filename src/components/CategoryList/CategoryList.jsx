@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Category from "./Category/Category";
+import Category from "../Category/Category";
 
 const CategoryList = () => {
 
